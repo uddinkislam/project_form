@@ -44,9 +44,13 @@ angular.module("app_form").controller("app_ctrl", ["$scope", "person_service", f
     
     $scope.call =function(id){
          person_service.id=id;
-        alert(id);
+        console.log(id);
         person_service.getPersonListIds();
  
+    }
+    
+    $scope.update=function(flag){
+        $scope.flag=flag;
     }
     
     
