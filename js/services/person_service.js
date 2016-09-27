@@ -1,7 +1,8 @@
 angular.module("app_form").service("person_service", ["$http",  function($http){
     
-    
-    
+     var object=this;
+    this.id=null;
+    this.personList={};
     $http.get("/service/person").then(function(response){
         console.log("loggin personList from person table");
         console.log("End of response");
@@ -12,13 +13,11 @@ angular.module("app_form").service("person_service", ["$http",  function($http){
     });
     
     
-    
-    var object=this;
-    this.id=null;
-    
+  this.getPersonListIds = function(){
+      
   
     
-    $http.get("/service/person/1").then(function(response){
+    $http.get("/service/person/"+object.id).then(function(response){
         
         
         console.log("logging to personList response for personIds");
@@ -31,7 +30,7 @@ angular.module("app_form").service("person_service", ["$http",  function($http){
         console.log(object.PersonListIds);
     });
     
-    
+    }
     
     
     

@@ -1,9 +1,9 @@
 <div class="settings">
     
-    
-<form name="myForm">
+
+<form name="myForm" ng-submit="submit()">
     <div class="row">
-    <div class="col-md-04"> <label>
+    <div class="col-md-06"> <label>
        FIRST NAME:
        <input type="text" name="fname" ng-model="user.fname" required>
     </label>
@@ -17,46 +17,26 @@
     </label>
     <div role="alert">
       <span class="error" ng-show="myForm.lname.$error.required">
-          Required!</span>    </div>
-        
-        
-        
+          Required!</span>    </div>        
         </div>
         
-    <div class="col-md-04"> ADDRESS:    </div>
+    <div class="col-md-04"> <label>
+       ADDRESS:
+       <input type="text" name="address" ng-model="user.address" required>
+    </label> 
+        <div role="alert">
+      <span class="error" ng-show="myForm.address.$error.required">
+          Required!</span>    </div>
+     <label>
+       PHONE NUMBER:
+       <input type="text" name="phone_number" ng-model="user.pNumber" required>
+    </label> 
+        <div role="alert">
+      <span class="error" ng-show="myForm.phone_number.$error.required">
+          Required!</span>    </div>    
+        </div>  
+        
+        <input type="submit">
         
 </div>
-    
-    
-    <div class="row"> 
-    <div class="col-md-04"> PHONE NUMBER:   </div>
-      </div>
-    
-    <div class="row"> 
-    <div class="col-md-04">  IMAGE: </div>
-      </div>
-    </form>
-
-
-
-
-</div>
- <label>
-       User name:
-       <input type="text" name="userName" ng-model="user.name" required>
-    </label>
-    <div role="alert">
-      <span class="error" ng-show="myForm.userName.$error.required">
-       Required!</span>
-    </div>
-    <label>
-       Last name:
-       <input type="text" name="lastName" ng-model="user.last"
-       ng-minlength="3" ng-maxlength="10">
-    </label>
-    <div role="alert">
-      <span class="error" ng-show="myForm.lastName.$error.minlength">
-        Too short!</span>
-      <span class="error" ng-show="myForm.lastName.$error.maxlength">
-        Too long!</span>
-    </div>
+ 

@@ -1,18 +1,16 @@
-<div ng-repeat ="person in personList" class="settings">
+
+
+<div class="settings flex-container"> 
+
+<div ng-repeat ="person in personList" class="table table-hover table-striped" ng-click="call(person.id)">
     
-    
-<form name="myForm">
+
     <div class="row">
-    <div class="col-md-04"> NAME:   {{person.last_name}}, {{person.first_name}}    </div>
-    <div class="col-md-04"> ADDRESS:  {{person.address}}  </div>
+    <div class="col-md-06"> <img class="imgsize" ng-src=" {{person.img_path}}">    </div>
         
-</div>
-    <div class="row"> 
-    <div class="col-md-04"> PHONE NUMBER: {{person.phone_number}}  </div>
-      </div>
+    <div class="col-md-04 font-container"> NAME:  {{person.last_name}}, {{person.first_name}} </div>
+        </div>
     
-    <div class="row"> 
-    <div class="col-md-04">  {{person.img_path}} </div>
-      </div>
-    </form>
 </div>
+
+    </div>

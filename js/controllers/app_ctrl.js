@@ -40,7 +40,25 @@ angular.module("app_form").controller("app_ctrl", ["$scope", "person_service", f
         
         
     });
-                 
+    
+    
+    $scope.call =function(id){
+         person_service.id=id;
+        alert(id);
+        person_service.getPersonListIds();
+ 
+    }
+    
+    
+    
+//        $scope.list = [];
+//        $scope.text = 'hello';
+//        $scope.submit = function() {
+//        if ($scope.text) {
+//        $scope.list.push(this.text);
+//        $scope.text = '';
+//    }
+//};         
                  
     
 }]);
