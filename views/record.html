@@ -1,0 +1,18 @@
+<div ng-repeat ="person in personList" class="settings">
+    
+    
+<form name="myForm">
+    <div class="row">
+    <div class="col-md-04"> NAME:   {{person.last_name}}, {{person.first_name}}    </div>
+    <div class="col-md-04"> ADDRESS:  {{person.address}}  </div>
+        
+</div>
+    <div class="row"> 
+    <div class="col-md-04"> PHONE NUMBER: {{person.phone_number}}  </div>
+      </div>
+    
+    <div class="row"> 
+    <div class="col-md-04">  {{person.img_path}} </div>
+      </div>
+    </form>
+</div>

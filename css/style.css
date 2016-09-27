@@ -1,0 +1,43 @@
+.settings{
+    margin: 25;
+}
+
+
+.flex-container{
+    
+    display: flex;
+    flex-direction: column;
+    margin: 25;
+     
+    float:inherit;
+   
+    
+}
+.flex-item{
+    background: black;
+    color: white;
+    cursor: pointer;
+    
+}
+.flex-item:hover{
+    background: white;
+    color: black;
+    
+}
+.imgsize{
+    height: 375;
+    width: 550px;
+    
+}
+
+.flex-right{
+    display: flex;
+    
+    flex-flow: row wrap;
+    
+    float: right;
+}
+.font-container{
+    font-size: 24;
+    font-style: normal;
+}
