@@ -78,6 +78,59 @@ app.get( "/service/person/:id",function(req, res, next){
     
 });
 
+//SAMPLE FOR TEMPLATING SERVICES
+
+var url="/service/person/insert";
+var query = "INSERT INTO person SET ?";
+var data = ["first_name", "last_name", "address", "phone_number"];
+
+//Passing values into the services
+
+postService(url, query, data);
+
+//END of POST SERVICE TEMPLATE
+
+//Create
+function postService(url, sqlQuery, data){ 
+app.post(url, function(request, response, next){
+   try{
+       var reqObj=request.body;
+       request.getConnection(function(error, conn){
+          if(error) {
+              console.log("SQL connection error:", error);
+              return next(error);
+          }
+           else
+               {
+                   var insertSql=sqlQuery;
+                   var insertValues={};
+                   for(var i=0; i<data.length; i++){
+                       insertValues[data[i]]=reqObj[data[i]];      
+                   }
+                   
+                   var query = conn.query(insertSql, insertValues, function(error, result){
+                      if(error){
+                          console.log("SQL error", error);
+                          return next(error);
+                      } 
+                       console.log(result);
+                       var name_id = result.insertId;
+                       response.json({"name": name_id});
+                       
+                   });
+               }
+       });
+   }
+    catch (ex){
+        console.log("Internal Error:"+ex);
+        return next(ex);
+    }
+  
+    
+});
+}
+
+
 
 //routing
 app.get('/index', function(req, res){

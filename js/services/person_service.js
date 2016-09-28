@@ -3,6 +3,13 @@ angular.module("app_form").service("person_service", ["$http",  function($http){
      var object=this;
     this.id=null;
     this.personList={};
+    object.formData={};
+    
+    
+    
+    console.log(object.formData);
+    
+    
     $http.get("/service/person").then(function(response){
         console.log("loggin personList from person table");
         console.log("End of response");
@@ -31,8 +38,33 @@ angular.module("app_form").service("person_service", ["$http",  function($http){
     });
     
     }
+  
+  
+    
+    //  POST SERVICE TO ADD INFORMATION TO THE SERVICE
     
     
+ 
+  
+    this.postData=function(){ 
+        
+        
+        var data = [object.formData];
+   
+    $http.post("/service/person/insert", data)   //here you can replace the data variable with a JSON object
+    .success(function(data){
+        
+        
+        console.log(data); 
+    })
+    .error(function(data){
+        console.log(data);
+        
+        
+        
+    });
+    
+    }
     
     
     

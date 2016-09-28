@@ -1,7 +1,9 @@
 angular.module("app_form").controller("app_ctrl", ["$scope", "person_service", function($scope, person_service){
     
     
-    
+    $scope.completeData=[];
+    person_service.formData=$scope.completeData;
+    console.log(person_service.formData);
     
     
     $scope.$watch(function(){
@@ -14,7 +16,7 @@ angular.module("app_form").controller("app_ctrl", ["$scope", "person_service", f
               
                 console.log("OLD VAL, Person");
               
-                console.log(oldVal);
+                console.log(oldVal);  //there is no old val
               
                $scope.personList=newVal;
             }
@@ -55,14 +57,30 @@ angular.module("app_form").controller("app_ctrl", ["$scope", "person_service", f
     
     
     
-//        $scope.list = [];
-//        $scope.text = 'hello';
-//        $scope.submit = function() {
-//        if ($scope.text) {
-//        $scope.list.push(this.text);
-//        $scope.text = '';
-//    }
-//};         
+    
+    
+        $scope.data= {
+            fname: "", 
+            lname: "", 
+            address: "", 
+            pNumber:""
+        };
+        
+    
+        $scope.submit = function() {
+        if ($scope.data !=null) {
+            
+            console.log($scope.data);   //this data is showing on console
+            
+          
+            $scope.completeData.push(this.data);
+            $scope.data="";
+            
+            person_service.postData();
+            
+        
+    }
+};         
                  
     
 }]);

@@ -1,11 +1,11 @@
 <div class="settings">
     
 
-<form name="myForm" ng-submit="submit()" ng-click="update(flag)">
+<form name="myForm" ng-submit="submit()">
     <div class="row">
     <div class="col-md-06"> <label>
        FIRST NAME:
-       <input type="text" name="fname" ng-model="user.fname" required>
+       <input type="text" name="fname" ng-model="data.fname" required>
     </label>
     <div role="alert">
       <span class="error" ng-show="myForm.fname.$error.required">
@@ -13,7 +13,7 @@
         
         <label>
        LAST NAME:
-       <input type="text" name="lname" ng-model="user.lname" required>
+       <input type="text" name="lname" ng-model="data.lname" required>
     </label>
     <div role="alert">
       <span class="error" ng-show="myForm.lname.$error.required">
@@ -22,21 +22,27 @@
         
     <div class="col-md-04"> <label>
        ADDRESS:
-       <input type="text" name="address" ng-model="user.address" required>
+       <input type="text" name="address" ng-model="data.address" required>
     </label> 
         <div role="alert">
       <span class="error" ng-show="myForm.address.$error.required">
           Required!</span>    </div>
      <label>
        PHONE NUMBER:
-       <input type="text" name="phone_number" ng-model="user.pNumber" required>
+       <input type="text" name="phone_number" ng-model="data.pNumber" required>
     </label> 
         <div role="alert">
       <span class="error" ng-show="myForm.phone_number.$error.required">
           Required!</span>    </div>    
         </div>  
         
-        <input type="submit">
+        <input type="submit" value="submit">
+        
+        {{data}}
+        
+        {{completeData}}
+    </div>
+        </form>
         
 </div>
  
